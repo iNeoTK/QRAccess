@@ -1,0 +1,144 @@
+{
+  "typography": {
+    "headings": {
+      "family": "Manrope, sans-serif",
+      "weights": ["600", "700", "800"],
+      "usage": "All page titles, modal headers, and major section dividers."
+    },
+    "body": {
+      "family": "Inter, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "General text, table data, form inputs."
+    },
+    "mono": {
+      "family": "JetBrains Mono, monospace",
+      "weights": ["400"],
+      "usage": "ID numbers, QR code text values, timestamps."
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "DEFAULT": "#1e3a8a",
+        "foreground": "#ffffff",
+        "description": "Institutional Blue (Blue-900). Use for primary buttons, active states, and header backgrounds."
+      },
+      "secondary": {
+        "DEFAULT": "#eab308",
+        "foreground": "#0f172a",
+        "description": "Flag Yellow (Yellow-500). Use for scanner guides, warnings, and highlights."
+      },
+      "destructive": {
+        "DEFAULT": "#ef4444",
+        "foreground": "#ffffff",
+        "description": "Flag Red (Red-500). Use for delete actions, error states, and logout."
+      },
+      "background": {
+        "light": "#f8fafc",
+        "dark": "#0f172a",
+        "scanner": "#1a1a1a"
+      },
+      "surface": {
+        "light": "#ffffff",
+        "dark": "#1e293b"
+      }
+    },
+    "usage_rules": [
+      "SCANNER PAGE: Must use Dark Mode (Slate-900/Black) to emphasize the camera feed.",
+      "ADMIN DASHBOARD: Must use Light Mode (Slate-50) for readability of data tables.",
+      "GRADIENTS: Forbidden for backgrounds. Use solid colors or subtle noise textures.",
+      "CONTRAST: Ensure Yellow text is never on White background. Use Yellow-600 on White, Yellow-400 on Black."
+    ]
+  },
+  "layout": {
+    "grid_systems": [
+      {
+        "name": "Scanner Layout",
+        "structure": "Centered single-column. Viewport height (100vh).",
+        "elements": [
+          "Header: Logo + Time (Absolute Top)",
+          "Center: Camera Viewfinder (Square aspect ratio)",
+          "Footer: Status Message + Manual Entry Button"
+        ]
+      },
+      {
+        "name": "Admin Dashboard",
+        "structure": "Sidebar + Main Content Area.",
+        "grid": "grid-cols-1 md:grid-cols-12 gap-6",
+        "widgets": {
+          "stats": "col-span-12 md:col-span-3",
+          "main_table": "col-span-12 md:col-span-12",
+          "recent_activity": "col-span-12 md:col-span-4"
+        }
+      }
+    ],
+    "spacing": {
+      "container_padding": "p-4 md:p-8",
+      "section_gap": "gap-8",
+      "component_gap": "gap-4"
+    }
+  },
+  "components": {
+    "buttons": {
+      "style": "Sharp corners or small radius (rounded-md).",
+      "primary": "bg-primary text-white hover:bg-primary/90 shadow-sm",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+      "outline": "border-2 border-input hover:bg-accent hover:text-accent-foreground"
+    },
+    "cards": {
+      "style": "Flat, 1px border (border-slate-200), no shadow or very subtle shadow-sm.",
+      "header": "Border-b border-slate-100 p-4 bg-slate-50/50",
+      "content": "p-6"
+    },
+    "scanner_overlay": {
+      "description": "Custom component overlaying the camera.",
+      "visuals": "Four corner brackets in Yellow (#eab308). Animated horizontal scanning beam (green or yellow) moving up and down.",
+      "instructions": "Semi-transparent black overlay outside the scan area (mask)."
+    },
+    "tables": {
+      "style": "Dense, zebra-striped (even:bg-slate-50).",
+      "header": "Uppercase, text-xs, font-bold, text-slate-500 tracking-wider."
+    }
+  },
+  "assets": {
+    "logo": {
+      "url": "https://customer-assets.emergentagent.com/job_qraccess-1/artifacts/4vymywo9_uerg1.jpg",
+      "alt": "U.E. Rómulo Gallegos Logo",
+      "usage": "Top left in Admin, Centered Top in Scanner."
+    },
+    "backgrounds": {
+      "login": "https://images.pexels.com/photos/8409850/pexels-photo-8409850.jpeg",
+      "style": "Use with an overlay of slate-900/90 to ensure text readability."
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px. Consistent size (w-5 h-5)."
+    }
+  },
+  "motion": {
+    "scanner_beam": "infinite linear movement top-to-bottom (2s duration).",
+    "page_transition": "opacity-0 to opacity-100 (0.3s ease-out).",
+    "hover": "translate-y-[-2px] transition-transform duration-200."
+  },
+  "accessibility": {
+    "contrast": "Ensure text on buttons meets WCAG AA.",
+    "focus": "Visible ring-2 ring-offset-2 ring-primary on all interactive elements.",
+    "aria": "All icon-only buttons must have aria-label."
+  },
+  "instructions_to_main_agent": [
+    "PHASE 1: Setup the 'Scanner' page first. It is the core feature. Use 'react-qr-reader' or similar library.",
+    "PHASE 2: Build the Admin Layout with Sidebar. Use 'Outlet' from react-router-dom.",
+    "PHASE 3: Implement the Login page with the background image and overlay.",
+    "PHASE 4: Build the CRUD tables. Use Shadcn 'Table' component.",
+    "CRITICAL: The Scanner page must look like a utility tool (Dark, High Contrast). The Admin page must look like a school office (Light, Clean, Organized).",
+    "CRITICAL: Use the provided Logo URL. Do not use placeholders.",
+    "CRITICAL: Add 'data-testid' to all inputs and buttons."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use gradients for main backgrounds.",
+    "Use 'sonner' for toast notifications.",
+    "Use 'Manrope' for all headings.",
+    "Ensure the app is fully responsive (Mobile First for Scanner).",
+    "Do not ask clarifying questions. Make executive design decisions based on this file."
+  ]
+}
